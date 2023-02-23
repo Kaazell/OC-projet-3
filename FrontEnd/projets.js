@@ -8,10 +8,28 @@ async function getJson(){
       method: 'GET'
    });
 if(!request.ok){
-   alert('Une erreur est survenue')
+   alert('Une erreur est survenue');
 }else{
-   let data = await request.json();
-   console.log(data)
-   }   
+    let data = await request.json();
+    //  import gallery from API 
+    const portfolio     = document.querySelector('#portfolio');
+    const gallery       = document.createElement('div');
+    gallery.className   = "gallery";
+    portfolio.appendChild(gallery);
+
+    for(let i = 0; i < data.length; i++){
+        let figure      = document.createElement('figure');
+        let img         = document.createElement('img');
+        let figCaption  = document.createElement('figcaption');
+        
+        img.src                 = data[i].imageUrl; 
+        figCaption.innerText    = data[i].title;
+
+        gallery.appendChild(figure);
+        figure.appendChild(img);
+        figure.appendChild(figCaption);
+    }
+ }   
 }
 getJson();
+
