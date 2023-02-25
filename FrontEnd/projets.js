@@ -17,18 +17,23 @@ if(!request.ok){
    gallery.className   = "gallery";
    portfolio.appendChild(gallery);
 
-   for(let i = 0; i < data.length; i++){
-      let figure      = document.createElement('figure');
-      let img         = document.createElement('img');
-      let figCaption  = document.createElement('figcaption');
-      
-      img.src                 = data[i].imageUrl; 
-      figCaption.innerText    = data[i].title;
+   function displayGallery(data){
+      for(let i = 0; i < data.length; i++){
+         let figure      = document.createElement('figure');
+         let img         = document.createElement('img');
+         let figCaption  = document.createElement('figcaption');
+         
+         img.src                 = data[i].imageUrl; 
+         figCaption.innerText    = data[i].title;
 
-      gallery.appendChild(figure);
-      figure.appendChild(img);
-      figure.appendChild(figCaption);
+         gallery.appendChild(figure);
+         figure.appendChild(img);
+         figure.appendChild(figCaption);
+      }
    }
+
+   // Default display
+   displayGallery(data);
 
    //  Setting filter button.
    const tousButton     = document.querySelector(".tous");
@@ -38,19 +43,23 @@ if(!request.ok){
 
    tousButton.addEventListener("click", function(){
       let tousFiltered = data.filter(objet => objet.userId == 1);
-      console.log(tousFiltered);
+      document.querySelector(".gallery").innerHTML="";
+      displayGallery(tousFiltered);
    });
    objetButton.addEventListener("click", function(){
       let objetFiltered = data.filter(objet => objet.category.name === "Objets");
-      console.log(objetFiltered);
+      document.querySelector(".gallery").innerHTML="";
+      displayGallery(objetFiltered);
    });
    appartButton.addEventListener("click", function(){
       let appartFiltered = data.filter(objet => objet.category.name === "Appartements");
-      console.log(appartFiltered);
+      document.querySelector(".gallery").innerHTML="";
+      displayGallery(appartFiltered);
    });
    hotelButton.addEventListener("click", function(){
       let hotelFiltered = data.filter(objet => objet.category.name === "Hotels & restaurants");
-      console.log(hotelFiltered);
+      document.querySelector(".gallery").innerHTML="";
+      displayGallery(hotelFiltered);
    });
 
 }   
