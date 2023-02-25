@@ -198,6 +198,7 @@ margin-top: 60px;
 }
 ._filters { /* Encadrement des filtres */
 font-family: 'Syne';
+background-color: white;
 color: #1D6154;
 border: 0.15em #1D6154 solid;
 padding: 9px 17px;
