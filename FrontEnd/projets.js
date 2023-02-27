@@ -61,7 +61,6 @@ if(!request.ok){
       document.querySelector(".gallery").innerHTML="";
       displayGallery(hotelFiltered);
    });
-
 }   
 }
 getJson();
