@@ -184,6 +184,7 @@ footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em
+	margin-top: auto;
 }
 
 /* Adding filters */
@@ -243,4 +244,11 @@ margin: auto;
 #login textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+footer{
+	position: fixed;
+	bottom: 2%;
+	right: 150px;
+
 }
